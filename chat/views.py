@@ -1,3 +1,4 @@
+from django.views.decorators.cache import never_cache
 from django.shortcuts import render
 import urllib
 import json
@@ -73,7 +74,8 @@ def msgbox(request):
 		message.save()
 		return HttpResponseRedirect("http://127.0.0.1:8000/chat/index/")
 
-@login_required		
+@login_required	
+@never_cache	
 def viewmsg(request):
 	if request.method=='GET':
 		messages=Message.objects.all()
