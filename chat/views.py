@@ -8,6 +8,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login
 from chat.models import Message
 from django.contrib.auth.decorators import login_required
+from django.template.response import TemplateResponse
+from django.http import HttpResponseRedirect
 @csrf_exempt
 def signup(request):
 	if request.method=='POST':
@@ -34,8 +36,11 @@ def signup(request):
 		profile_user.image = (personInfo["picture"])["thumbnail"]
 		profile_user.user_name=data_user
 		profile_user.save()
-	return HttpResponse("Success: true")
-	
+		return HttpResponseRedirect("http://127.0.0.1:8000/chat/login/")
+	else:
+		response = render(request, 'signup.html', {})
+		return response
+
 @csrf_exempt
 def log_in(request):
 	if request.method=='POST':
@@ -45,15 +50,18 @@ def log_in(request):
 		if user is not None:
 			if user.is_active:
 				login(request, user)
-				return HttpResponse("Success: true")
+				return HttpResponseRedirect("http://127.0.0.1:8000/chat/index/")
 				# Redirect to a success page.
 			else:
-				return HttpResponse("User Inactive")
+				return HttpResponseRedirect("http://127.0.0.1:8000/chat/login/")
 				# Return a 'disabled account' error message
 		else:
-			return HttpResponse("Success: false")
+			return HttpResponseRedirect("http://127.0.0.1:8000/chat/login/")
 			# Return an 'invalid login' error message.
-			
+	else:
+		response = render(request, 'login.html', {})
+		return response
+
 @csrf_exempt
 @login_required
 def msgbox(request):
@@ -62,13 +70,15 @@ def msgbox(request):
 		message.message=request.POST.get('message')
 		message.user_name= request.user.username
 		message.image=request.user.profile.image
-		return HttpResponse("Success: true")
-		#return render(request.'index.html',{'message':message,'image'=image,'username'=username})
-	else:
-		return HttpResponse('please enter the message again!')
-'''@api_view(['GET'])
-@permission_classes((IsAuthenticated,))
-def get_scholarships(request):
-	scholarship_list = scholarship.objects.all()
-	serializer=ScholarshipSerializer(scholarship_list,many=True)
-	return Response(serializer.data)'''
+		message.save()
+		return HttpResponseRedirect("http://127.0.0.1:8000/chat/index/")
+
+@login_required		
+def viewmsg(request):
+	if request.method=='GET':
+		messages=Message.objects.all()
+		response = render(request, 'index.html', {'messages':messages})
+        return response
+		
+'''def viewmsg(request):
+	if request.method=='GET':'''
