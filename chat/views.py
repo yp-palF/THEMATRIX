@@ -77,7 +77,7 @@ def msgbox(request):
 def viewmsg(request):
 	if request.method=='GET':
 		messages=Message.objects.all()
-		response = render(request, 'index.html', {'messages':messages})
+		response = render(request, 'index.html', {'messages':reversed(messages)})
         return response
 		
 '''def viewmsg(request):

@@ -108,12 +108,12 @@ table {
 body {
   font: 13px/20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #404040;
-  background: #596778;
+  background: #777FB9;
 }
 
 .sign-up {
   position: relative;
-  margin: 50px auto;
+  margin: 170px auto;
   width: 280px;
   padding: 33px 25px 29px;
   background: white;
