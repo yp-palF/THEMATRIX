@@ -1,0 +1,114 @@
+﻿<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>Bootstrap Chat Box Example</title>
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="/static/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONT AWESOME  CSS -->
+    <link href="/static/css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE CSS -->
+    <link href="/static/css/styleindex.css" rel="stylesheet" />
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="row pad-top pad-bottom">
+
+
+            <div class=" col-lg-15 col-md-15 col-sm-15">
+                <div class="chat-box-div">
+                    <div class="chat-box-head">
+                        MATRIX DISCUSSION FORUM
+                            <div class="btn-group pull-right">
+                                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <span class="fa fa-cogs"></span>
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#"><span class="fa fa-map-marker"></span>&nbsp;Invisible</a></li>
+                                    <li><a href="#"><span class="fa fa-comments-o"></span>&nbsp;Online</a></li>
+                                    <li><a href="#"><span class="fa fa-lock"></span>&nbsp;Busy</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><span class="fa fa-circle-o-notch"></span>&nbsp;Logout</a></li>
+                                </ul>
+                            </div>
+                    </div>
+                    <div class="panel-body chat-box-main">
+                        <div class="chat-box-left">
+                        <textarea class="form-control">{{message}}</textarea>    
+                        </div>
+                        <div class="chat-box-name-left">
+                            <img src="{{image}}" alt="bootstrap Chat box user image" class="img-circle" />
+                            -{{username}}
+                        </div>
+                        <hr class="hr-clas" />
+                        <div class="chat-box-right">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </div>
+                        <div class="chat-box-name-right">
+                            <img src="/static/img/user.gif" alt="bootstrap Chat box user image" class="img-circle" />
+                            - Romin Royeelin
+                        </div>
+                        <hr class="hr-clas" />
+                        <div class="chat-box-left">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </div>
+                        <div class="chat-box-name-left">
+                            <img src="/static/img/user.png" alt="bootstrap Chat box user image" class="img-circle" />
+                            -  Justine Goliyad
+                        </div>
+                        <hr class="hr-clas" />
+                        <div class="chat-box-right">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </div>
+                        <div class="chat-box-name-right">
+                            <img src="/static/img/user.gif" alt="bootstrap Chat box user image" class="img-circle" />
+                            - Romin Royeelin
+                        </div>
+                        <hr class="hr-clas" />
+                    </div>
+		    <form name="message" id="message" action="http://127.0.0.1/chat/sendmsg/" method="POST">
+		    {% csrf_token %}
+                    <div class="chat-box-footer">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Enter Text Here..." id="message" name="message">
+			    
+			    
+                            <span class="input-group-btn">
+                                <button class="btn btn-info" type="button">SEND</button>
+                            </span>
+                        </div>
+                    </div>
+		    </form>
+
+                </div>
+
+            </div>
+            
+                        
+                     
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- USING SCRIPTS BELOW TO REDUCE THE LOAD TIME -->
+    <!-- CORE JQUERY SCRIPTS FILE -->
+    <script src="/static/js/jquery-1.11.1.js"></script>
+    <!-- CORE BOOTSTRAP SCRIPTS  FILE -->
+    <script src="/static/js/bootstrap.js"></script>
+</body>
+
+</html>
