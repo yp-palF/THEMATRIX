@@ -7,14 +7,14 @@
     <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
-    <title>Bootstrap Chat Box Example</title>
+    <title>MATRIX OPEN DISCUSSION FORUM</title>
     <!-- BOOTSTRAP CORE STYLE CSS -->
     <link href="/static/css/bootstrap.css" rel="stylesheet" />
     <!-- FONT AWESOME  CSS -->
     <link href="/static/css/font-awesome.css" rel="stylesheet" />
     <!-- CUSTOM S/TYLE CSS -->
     <link href="/static/css/style.css" rel="stylesheet" />
-    <META HTTP-EQUIV="refresh" CONTENT="3">
+    <META HTTP-EQUIV="refresh" CONTENT="10">
 </head>
 <body>
 
@@ -27,18 +27,23 @@
                 <div class="chat-box-div">
                     <div class="chat-box-head">
                         MATRIX OPEN DISCUSSION FORUM
-                        <br>
-                        <text>   Do you like mess food in LNMIIT?</text>
-                            <div class="btn-group pull-right">
-                                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <span class="fa fa-cogs"></span>
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="http://127.0.0.1:8000/chat/login/"><span class="fa fa-circle-o-notch"></span>&nbsp;Logout</a></li>
-                                </ul>
-                            </div>
+                            
                     </div>
+					<div class="chat-box-head">
+                        Which country is the best?
+                    </div>
+					<div class="chat-box-head">
+							<div class="btn-group pull-right">
+								<form action = "http://127.0.0.1:8000/chat/logout/" method = "GET">
+									<button class="btn btn-info" type="submit">LOGOUT</button>
+								<form>
+                            </div>
+							<div class="btn-group pull-right">
+								<form action = "http://127.0.0.1:8000/chat/profile/" method = "GET">
+									<button class="btn btn-info" type="submit">PROFILE</button>
+								<form>
+                            </div>
+					</div>	
                     <div class="panel-body chat-box-main">
 						{% for message in messages %}
 							<div class="chat-box-right">
