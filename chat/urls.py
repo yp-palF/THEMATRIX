@@ -6,4 +6,5 @@ urlpatterns = [
 	url(r'^login/', views.log_in),
 	url(r'^sendmsg/',views.msgbox),
 	url(r'^index/',views.viewmsg),
+    url(r'^logout/',views.view_logout),
 ]

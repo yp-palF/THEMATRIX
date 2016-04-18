@@ -6,7 +6,7 @@ from .models import Profile
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from chat.models import Message
 from django.contrib.auth.decorators import login_required
 from django.template.response import TemplateResponse
@@ -82,5 +82,7 @@ def viewmsg(request):
 		response = render(request, 'index.html', {'messages':reversed(messages)})
         return response
 		
-'''def viewmsg(request):
-	if request.method=='GET':'''
+def view_logout(request):
+	logout(request)
+	response = render(request, 'login.html', {})
+	return response
